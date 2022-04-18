@@ -17,7 +17,9 @@ import './home.css'
 const Home = () => {
   return (
     <div className='home'>
-      
+        <div style={{color:'white', margin:'25px', background:'orangered',borderRadius:'50%',width:'40px',height:'40px',textAlign:'center',display:'flex',alignItems:'center',justifyContent:'center'}}> <span style={{textAlign:'center'}}>SOI</span> 
+        </div>
+       
       <div className='header'>
         <div className='bring'>
           <h1>
@@ -25,42 +27,49 @@ const Home = () => {
           </h1>
           <p>SaveOurImage makes it easy and simpler for users to save and be able to access images on cloud</p>
           <div>
-            <button>Get started</button>
+            <button style={{background:'orangered',color:'white',padding:'10px',border:'none',width:'150px',borderRadius:'10px'}}>Get started</button>
           </div>
           
         </div>
-      <div className='img'>
+        <div className='img'>
        
-            <img src={logo2}/>
-            <h1 style={{color:'orangered'}}>SAVE OUR IMAGE</h1>
-        
-      </div>
+       <img src={logo2}/>
+      {/* <h1 style={{color:'orangered',position:'absolute',top:'20',zIndex:'777'}}>SAVE OUR IMAGE</h1>*/}
+   
+ </div>
       
       </div>
       <div className='body'>
         <div className='adv'> 
-            <h1>
+           <div style={{display:'flex',flexDirection:'column', alignItems:'center'}}> <h1>
               What Different about SaveOurImage?
             </h1>
           
             <p> SaveOurImage provides all functionality user need to save, manage and access image easily on our cloud
-               system</p>
-               <div className='advimg'>  <img src={logo2}/></div>
+               system</p></div>
+              { <div className='advimg'>  <img src={logo2}/></div>}
           
         </div>
         <div className='diff'>
           <div>
-            <span>01</span><b>Track company wide progress</b>
+           <div><span>01</span><br/><br/><b>Track company wide progress</b>
+           <p>See how your day-to-day tasks fit into the real world secenario</p>
+           
+           </div> 
+          
           </div>
           <div>
-            <span>02</span><b>Advanced image storage system</b>
+           <div><span>02</span><br/><br/><b>Advanced image storage system</b>
+           <p>See how your day-to-day tasks fit into the real world secenario</p>
+           </div> 
           </div>
           <div>
-            <span>03</span><b>Scalable storage capacity</b><br/>
+            <div><span>03</span><br/><br/><b>Scalable storage capacity</b></div>
+           <div><p>See how your day-to-day tasks fit into the real world secenario</p></div> 
+          </div>
+          <div>
+            <span>04</span><br/><br/><b>Secure Users Images</b>
             <p>See how your day-to-day tasks fit into the real world secenario</p>
-          </div>
-          <div>
-            <span>04</span><b>Secure Users Images</b>
           </div>
 
         </div>

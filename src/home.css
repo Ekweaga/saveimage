@@ -1,5 +1,6 @@
 button{
     cursor: pointer;
+    box-shadow: 8px 6px 10px 2px rgba(196, 73, 73, 0.75);
 }
 ul{
     margin:0;
@@ -21,6 +22,9 @@ input{
     border:none;
     margin:10px;
 }
+.home{
+    position:relative;
+}
 
 .header{
     display: flex;
@@ -41,36 +45,79 @@ font-size: 25px;
   margin:0 auto;
 }
 .header .img img{
-width:550px;
+width:500px;
+
   
    
 }
-.header .img{
- position: relative;
- 
-margin-top:-150px;
-margin-right: -2px;
+ .header .img{
+
+margin-top:-300px;
+
 
 }
 .body{
     display:flex;
     justify-content: space-between;
+    margin-top:70px;
  
 }
+.body .adv{
+    width:300px;
+    margin:0 auto;
+    display: flex;
+    flex-direction: column;
+}
+.body .adv h1{
+    font-size: 20px;
+}
+.body .adv p{
+    font-size: 13px;
+}
 .body .adv .advimg{
-    position: relative;
- 
-    margin-left:-960px;
-    margin-right: -5px;
+    margin-left:-700px;
+    margin-bottom: -150px;
+    margin-top:70px;
+}
+.body .adv .advimg img{
+    width:500px;
+}
+.body .diff{
+    width:300px;
+    margin:0 auto;
+    display:flex;
+    flex-direction: column;
+  align-items: center;
+  align-content: center;
+   
+}
+.body .diff div{
+    margin-bottom: 25px;
+}
+.body .diff p{
+    font-size: 12px;
+    margin:10px 
+}
+.body .diff div b{
+    font-size:13px;
+    margin-top:20px;
+}
+.body .diff span{
+    background-color: orangered;
+    color:white;
+    margin-bottom:20px;
+    padding:8px;
+    border-radius: 15px;
 }
 .test{
 
     display:flex;
     justify-content: space-around;
     margin:30px;
+  
 }
 .test div{
-    background-color: rgb(203, 212, 212);
+    background-color: rgb(238, 240, 240);
   margin:15px;
  padding:8px;
   
@@ -116,10 +163,8 @@ margin-right: -2px;
         flex-direction: column-reverse;
     }
     .header .img{
-        position: relative;
-        margin-left:20px;
-       margin-top:-140px;
-       margin-right: -5px;
+       
+      margin-top:-120px;
        
        }
     .header .img img{
@@ -127,6 +172,11 @@ margin-right: -2px;
          
           
        }
+       .body .adv .advimg{
+        margin-left:-500px;
+        margin-top:70px;
+        margin-bottom: -170px;
+    }
     .test{
 
         display:flex;
@@ -134,7 +184,7 @@ margin-right: -2px;
         flex-direction: column-reverse;
     }
     .test div{
-        background-color: rgb(203, 212, 212);
+        background-color: rgb(245, 245, 245);
      margin:20px 0;
      padding:8px;
       
