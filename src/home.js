@@ -17,8 +17,8 @@ import './home.css'
 const Home = () => {
   return (
     <div className='home'>
-        <div style={{color:'white', margin:'25px', background:'orangered',borderRadius:'50%',width:'40px',height:'40px',textAlign:'center',display:'flex',alignItems:'center',justifyContent:'center'}}> <span style={{textAlign:'center'}}>SOI</span> 
-        </div>
+       { /*<div style={{color:'white', margin:'25px', background:'orangered',borderRadius:'50%',width:'40px',height:'40px',textAlign:'center',display:'flex',alignItems:'center',justifyContent:'center'}}> <span style={{textAlign:'center'}}>SOI</span> 
+        </div>*/}
        
       <div className='header'>
         <div className='bring'>
@@ -31,12 +31,7 @@ const Home = () => {
           </div>
           
         </div>
-        <div className='img'>
        
-       <img src={logo2}/>
-      {/* <h1 style={{color:'orangered',position:'absolute',top:'20',zIndex:'777'}}>SAVE OUR IMAGE</h1>*/}
-   
- </div>
       
       </div>
       <div className='body'>

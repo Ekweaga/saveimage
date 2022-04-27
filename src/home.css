@@ -1,6 +1,6 @@
 button{
     cursor: pointer;
-    box-shadow: 8px 6px 10px 2px rgba(196, 73, 73, 0.75);
+    
 }
 ul{
     margin:0;
@@ -23,13 +23,19 @@ input{
     margin:10px;
 }
 .home{
-    position:relative;
+    
 }
 
 .header{
-    display: flex;
-    justify-content: space-between;
+   background-image:linear-gradient(to right, rgba(0,0,0,0.4), rgba(0,0,0,0.6),rgba(0,0,0,0.6)) ,url('./oo.png');
+   background-repeat: no-repeat;
+   background-size: cover;
+    justify-content: center;
     align-items: center;
+    height:350px;
+    display: flex;
+    flex-direction: column;
+    color:white;
 }
 .header .bring h1{
 font-size: 25px;
@@ -41,8 +47,8 @@ font-size: 25px;
     display:flex;
     flex-direction: column;
     
-    width:300px;
-  margin:0 auto;
+    
+  margin:50px 
 }
 .header .img img{
 width:500px;
