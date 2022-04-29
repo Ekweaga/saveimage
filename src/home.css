@@ -15,7 +15,7 @@ ul li{
     margin:8px;
     font-size: 10px;
 }
-input{
+.footer input{
     padding:10px;
     border-radius: 15px;
     outline:none;
@@ -27,7 +27,7 @@ input{
 }
 
 .header{
-   background-image:linear-gradient(to right, rgba(0,0,0,0.4), rgba(0,0,0,0.6),rgba(0,0,0,0.6)) ,url('./oo.png');
+   background-image:linear-gradient(to right, rgba(0,0,0,0.4), rgba(0,0,0,0.6),rgba(0,0,0,0.6)) ,url('./images/man1.jpeg');
    background-repeat: no-repeat;
    background-size: cover;
     justify-content: center;
@@ -36,6 +36,7 @@ input{
     display: flex;
     flex-direction: column;
     color:white;
+    background-position: center;
 }
 .header .bring h1{
 font-size: 25px;
@@ -61,6 +62,23 @@ width:500px;
 margin-top:-300px;
 
 
+}
+.pic{
+    column-count:3;
+    column-width: 33%;
+    -webkit-column-count: 3;
+    -moz-column-count: 3;
+    -webkit-column-width: 33%;
+    -moz-column-width: 33%;
+    padding:0 12px;
+    margin-top:20px;
+    width:90%;
+    margin:30px auto;
+}
+.pic img{
+    width:350px;
+    height:300px;
+    filter: brightness(0.4);
 }
 .body{
     display:flex;
@@ -201,6 +219,18 @@ margin-top:-300px;
         justify-content: space-between;
         flex-direction: column;
      
+    }
+    .pic{
+        column-count:1;
+        column-width: 33%;
+        -webkit-column-count: 1;
+        -moz-column-count: 1;
+        -webkit-column-width: 33%;
+        -moz-column-width: 33%;
+        padding:0 12px;
+        margin-top:20px;
+        width:90%;
+        margin:30px auto;
     }
     .bottom{
         background-color: orangered;

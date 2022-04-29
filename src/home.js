@@ -12,7 +12,13 @@ import img1 from './images/icon-facebook.svg'
 import img2 from './images/icon-instagram.svg'
 import img3 from './images/icon-twitter.svg'
 import img4 from './images/icon-youtube.svg'
+import man1 from './images/man1.jpeg'
+import man2 from './images/man2.jpeg'
+import man3 from './images/man3.jpeg'
+import man4 from './images/man4.jpeg'
+import man5 from './images/man5.jpeg'
 import './home.css'
+import {Link} from 'react-router-dom'
 
 const Home = () => {
   return (
@@ -27,13 +33,14 @@ const Home = () => {
           </h1>
           <p>SaveOurImage makes it easy and simpler for users to save and be able to access images on cloud</p>
           <div>
-            <button style={{background:'orangered',color:'white',padding:'10px',border:'none',width:'150px',borderRadius:'10px'}}>Get started</button>
+          <Link to="signup">  <button style={{background:'orangered',color:'white',padding:'10px',border:'none',width:'150px',borderRadius:'10px'}}>Get started</button></Link>
           </div>
           
         </div>
        
       
       </div>
+      
       <div className='body'>
         <div className='adv'> 
            <div style={{display:'flex',flexDirection:'column', alignItems:'center'}}> <h1>
@@ -47,24 +54,24 @@ const Home = () => {
         </div>
         <div className='diff'>
           <div>
-           <div><span>01</span><br/><br/><b>Track company wide progress</b>
-           <p>See how your day-to-day tasks fit into the real world secenario</p>
+           <div><span>01</span><br/><br/><b>User Authentication</b>
+           <p>Users are Authenticated to access thier images</p>
            
            </div> 
           
           </div>
           <div>
            <div><span>02</span><br/><br/><b>Advanced image storage system</b>
-           <p>See how your day-to-day tasks fit into the real world secenario</p>
+           <p>We use large and scalable storage facility to store images</p>
            </div> 
           </div>
           <div>
             <div><span>03</span><br/><br/><b>Scalable storage capacity</b></div>
-           <div><p>See how your day-to-day tasks fit into the real world secenario</p></div> 
+           <div><p>Storage system used will scale-up has images uploads increases</p></div> 
           </div>
           <div>
             <span>04</span><br/><br/><b>Secure Users Images</b>
-            <p>See how your day-to-day tasks fit into the real world secenario</p>
+            <p>Each User image can only be seen and access by that user</p>
           </div>
 
         </div>
@@ -93,7 +100,7 @@ const Home = () => {
          </div>
       </div>
       <div>
-        <button  style={{color:'white',background:'orangered',border:'none',margin:'20px',width:'150px',borderRadius:'20px',padding:'8px'}}>Create an account</button>
+      <Link to="signup">  <button  style={{color:'white',background:'orangered',border:'none',margin:'20px',width:'150px',borderRadius:'20px',padding:'8px'}}>Create an account</button></Link>
       </div>
 
       <div className='bottom'>

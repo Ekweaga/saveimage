@@ -23,7 +23,11 @@ const Uploadform = () => {
     }
 
   return (
-  <>  <div>
+
+  <> 
+  <div></div>
+  
+   <div>
             <div>
                 <form>
                     <label for='img' style={{textAlign:'center'}}>
