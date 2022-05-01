@@ -1,21 +1,48 @@
-import React,{useState,useRef} from 'react';
+import React,{useState,useRef,} from 'react';
 import { auth } from './firebase';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { useHistory } from "react-router-dom";
 import './signup.css'
 
 function Signup() {
-  const [loading,setLoading] = useState(false)
-  const emailref = useRef();
-  const passwordref = useRef();
- 
-  const  signup = async ()=>{
+  const [loading,setLoading] = useState(false);
+  const [error, seterror] = useState(null);
+  const [success, setsuccess] = useState(null)
+  const [data, setdata] = useState({
+    email:'',
+    password:''
+  });
+
+ const {email,password} = data
+ const handlechange = (e)=>{
+   setdata({...data, [e.target.name]: e.target.value})
+ }
+  const  signup = async (e)=>{
+    e.preventDefault();
     setLoading(true)
-    try{
-      await createUserWithEmailAndPassword(auth,emailref.current.value,passwordref.current.value);
+
+    if(!email || !password){
+      seterror("Fields are empty")
       setLoading(false)
     }
+    if(password.length < 6){
+      seterror("Password characters must be greater than 6")
+      setLoading(false)
+    }
+   
+    try{
+       await createUserWithEmailAndPassword(auth,email,password);
+      setLoading(false)
+      setsuccess("Your Account is created successfully")
+      setdata({
+        email:'',
+        password: ''
+      })
+    }
     catch(err){
-      console.log(err)
+    seterror(err.message)
+    console.log(err)
+    setLoading(false)
     }
  
   
@@ -28,14 +55,18 @@ function Signup() {
           <span style={{textAlign:'center',fontSize:'25px'}}>SOI</span> </div>
         <form onSubmit={signup}>
             <div>
-                <input type="email" placeholder='Email' ref={emailref}/>
+                <input type="email" placeholder='Email' value={email} onChange={handlechange} name='email'/>
             </div>
             <div>
-                <input type="password" placeholder='Password' ref={passwordref}/>
+                <input type="password" placeholder='Password' value={password} onChange={handlechange} name='password'/>
             </div><br/>
             <div>
               <button type="submit" >{loading ? "CREATING...." :"SIGN UP"}</button>
 
+            </div>
+            <div>
+              {error?<p>{error}</p>:''}
+              {success ? <p>{success}</p>: ''}
             </div>
         </form>
         </div>
