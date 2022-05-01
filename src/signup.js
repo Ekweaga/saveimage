@@ -5,6 +5,7 @@ import { useHistory } from "react-router-dom";
 import './signup.css'
 
 function Signup() {
+  const history = useHistory();
   const [loading,setLoading] = useState(false);
   const [error, seterror] = useState(null);
   const [success, setsuccess] = useState(null)
@@ -37,7 +38,8 @@ function Signup() {
       setdata({
         email:'',
         password: ''
-      })
+      });
+      history.replace("/upload");
     }
     catch(err){
     seterror(err.message)
