@@ -88,11 +88,11 @@ const Home = () => {
         <div>
         <img src={p2}/>
         <h3>Anisha</h3>
-        <p>Wow, I have be able to save all my iages from my phone to SaveOurImage. Easily accessible, Kudos</p>
+        <p>I have been using this platform for a while now and I tell you, its really the best</p>
         </div>
         <div>    <img src={p3}/>  
          <h3>Richard</h3>
-         <p>Wow, I have be able to save all my iages from my phone to SaveOurImage. Easily accessible, Kudos</p>
+         <p>SOI, i give them thumbs up for large storage capacity!!!. I was able to store all my images as bulky as they were</p>
         </div>
         <div>    <img src={p4}/>  
          <h3>Shanai</h3>
