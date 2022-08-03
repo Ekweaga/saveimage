@@ -7,47 +7,70 @@ import { auth } from './firebase';
 import { useHistory } from "react-router-dom";
 import './uploadform.css';
 import {projectfirestore, projectstorage} from './firebase.js'
+import { doc, setDoc } from "firebase/firestore"; 
 
-import { ref,getDownloadURL,uploadBytes,deleteObject,listAll} from 'firebase/storage';
+import { ref,getDownloadURL,uploadBytes,deleteObject,listAll,uploadBytesResumable} from 'firebase/storage';
 
 const Uploadform = () => {
     const [error, setError] = useState(null);
+    const [loading,setloading] = useState(true)
+    const [imgloading,setimgloading] = useState(false)
     const [file, setFile] = useState(null);
     const [user,setuser] = useState(null);
     const [imagesucess,setimagesuccess] = useState(null);
-    const [imagelist,setimagelist] = useState([])
-    console.log(user)
+    const [imagelist,setImagelist] = useState([])
+    const [progress,setprogress] = useState(null)
+    const [url,seturl] = useState(null);
+  
    
     let options = ['image/png', "image/jpg", "image/jpeg"];
-    const list = ref(projectstorage,`${user?.uid}`)
+    const Upload = (e)=>{
+        setloading(true);
+        const file = e.target.files[0]
+        const storageref = ref(projectstorage,`images/${Date.now()}-${file.name}`);
+        const uploadTask = uploadBytesResumable(storageref, file);
+        
+        uploadTask.on("state_changed", (snapshot)=>{
+          const uploadprogress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+          setprogress(uploadprogress)
+        },  (error) => {
+          // Handle unsuccessful uploads
+        }, 
+        () => {
+          // Handle successful uploads on complete
+          // For instance, get the download URL: https://firebasestorage.googleapis.com/...
+          getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+            console.log('File available at', downloadURL);
+            seturl(downloadURL)
+            setloading(false)
+          });
+        }
+        )
+    }
+    
 
     const uploadimage = async ()=>{
-       
-        if(file && options.includes(file.type)){
-            try{
-                const storageref = ref(projectstorage,`${user?.uid}/${file.name}`);
-                await uploadBytes(storageref,file).then((snapshot)=>{
-                    getDownloadURL(snapshot.ref).then((url)=>{
-                        setimagelist((prev)=>[
-                            ...prev, url
-                        ])
-                    })
-                  
-                })
-                setimagesuccess("image uploaded");
-                   setError(null)
+        try{
+            setloading(true)
+            if(!url){
+              alert("Error")
             }
-            catch(err){
-                console.log(err)
+            else{
+              const data = {
+                  id:`${Date.now()}`,
+
+                  imageurl:url
+              }
+              await setDoc(doc(projectfirestore, "images", `${Date.now()}`), data)
+              setloading(false);
+              
             }
-           
-       
-        }
-        else{
-            setError("Please use image of png, jpg, jpeg only");
-           
-        }
-    }
+          }
+          catch{
+          
+          }
+          }
+          
    
     const history = useHistory();
     const logout = async ()=>{
@@ -56,18 +79,9 @@ const Uploadform = () => {
     }
     
    useEffect(()=>{
-       onAuthStateChanged(auth,(currentuser)=>{
-           setuser(currentuser)
-          
-       });
-listAll(list).then((response)=>{
-    console.log(response)
-    response.items.forEach((item)=>{
-        getDownloadURL(item).then((url)=>{
-            setimagelist((prev)=>[...prev,url])
-        })
-    })
-})
+      
+     
+   
    },[])
 
   return (
@@ -95,7 +109,7 @@ listAll(list).then((response)=>{
                         <span style={{fontSize:'30px',border:'1px solid crimson', padding:'5px',borderRadius:'50%',textAlign:'center'}}>+</span>
                        
                     </label>
-                    <input type="file"  id='img' style={{display:'none'}} onChange={(e)=>{setFile(e.target.files[0])}}/>
+                    <input type="file"  id='img' style={{display:'none'}} onChange={Upload}/>
                     <button type="submit" onClick={uploadimage}>Upload Image</button>
                
                
@@ -104,16 +118,13 @@ listAll(list).then((response)=>{
                 {error && <div>{error}</div>}
               
                 {file &&<div>{imagesucess}</div>}
+                {imgloading && (<p>Loading</p>)}
                
             </div>
 
 
     </div>
-    <div>
-        {imagelist.map((url)=>{
-            return <img src={url}/>
-        })}
-    </div>
+    <div>{loading && (<p>Loading</p>)}</div>
    
     </>
   )

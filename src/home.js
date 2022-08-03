@@ -100,7 +100,7 @@ const Home = () => {
          </div>
       </div>
       <div>
-      <Link to="signup">  <button  style={{color:'white',background:'orangered',border:'none',margin:'20px',width:'150px',borderRadius:'20px',padding:'8px'}}>Create an account</button></Link>
+      <Link to="signup">  <button  style={{color:'white',background:'orangered',border:'none',margin:'20px',width:'250px',borderRadius:'20px',padding:'10px'}}>Create an account</button></Link>
       </div>
 
       <div className='bottom'>
@@ -108,7 +108,7 @@ const Home = () => {
   <h2 style={{fontSize:'15px'}}>Save yourself some space with SaveOurImage</h2>
 </div>
 <div className='btn'>
-  <button style={{color:'orangered',background:'white',border:'none',margin:'20px',width:'120px',borderRadius:'20px',padding:'8px'}}>
+  <button style={{color:'orangered',background:'white',border:'none',margin:'20px',width:'200px',borderRadius:'20px',padding:'8px'}}>
     Get Started
   </button>
 </div>

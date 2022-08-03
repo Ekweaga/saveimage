@@ -1,7 +1,7 @@
 import React,{useState,useRef,} from 'react';
 import { auth } from './firebase';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import './signup.css'
 
 function Signup() {
@@ -22,30 +22,37 @@ function Signup() {
     e.preventDefault();
     setLoading(true)
 
-    if(!email || !password){
+    if(email === "" || password === ""){
       seterror("Fields are empty")
+    
+  
       setLoading(false)
     }
-    if(password.length < 6){
+    else if(password.length < 6){
       seterror("Password characters must be greater than 6")
       setLoading(false)
     }
-   
+   else{
     try{
-       await createUserWithEmailAndPassword(auth,email,password);
-      setLoading(false)
-      setsuccess("Your Account is created successfully")
-      setdata({
-        email:'',
-        password: ''
+      await createUserWithEmailAndPassword(auth,email,password).then((response)=>{
+        console.log(response.user.refreshToken)
+        localStorage.setItem('token', JSON.stringify(response.user.refreshToken))
       });
-      history.replace("/upload");
-    }
-    catch(err){
-    seterror(err.message)
-    console.log(err)
-    setLoading(false)
-    }
+     setLoading(false)
+     setsuccess("Your Account is created successfully")
+     setdata({
+       email:'',
+       password: ''
+     });
+     history.replace("/upload");
+   }
+   catch(err){
+   seterror(err.message)
+   console.log(err)
+   setLoading(false)
+   }
+   }
+    
  
   
 
@@ -55,6 +62,10 @@ function Signup() {
     <div className='formtag'>
           <div style={{color:'white',background:'orangered',borderRadius:'50%',width:'100px',height:'100px', margin:'auto', marginTop:'100px',textAlign:'center',display:'flex',alignItems:'center',justifyContent:'center'}}> 
           <span style={{textAlign:'center',fontSize:'25px'}}>SOI</span> </div>
+
+          <div><h2>Create an Account</h2>
+          <p>Please create an account to continue</p>
+          </div>
         <form onSubmit={signup}>
             <div>
                 <input type="email" placeholder='Email' value={email} onChange={handlechange} name='email'/>
@@ -69,7 +80,8 @@ function Signup() {
             <div>
               {error?<p>{error}</p>:''}
               {success ? <p>{success}</p>: ''}
-            </div>
+            </div><br/>
+            <div>Already have an account ? <Link to="login" style={{color:'black',textDecoration:'none'}}>Sign in</Link></div>
         </form>
         </div>
   )

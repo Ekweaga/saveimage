@@ -5,18 +5,18 @@
     justify-content: center;
 }
 form{
-    margin:50px;
+    margin:10px;
 }
 .formtag input{
     width:250px;
-    margin:10px;
+    margin-top:10px;
     padding:9px;
 }
 .formtag input:focus{
     outline:none;
 }
 form button{
-    width:250px;
+    width:280px;
     background-color: orangered;
     color:white;
     padding:10px;
