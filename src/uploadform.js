@@ -6,11 +6,11 @@ import { useHistory , Link} from "react-router-dom";
 import './uploadform.css';
 import {projectfirestore, projectstorage} from './firebase.js'
 import { doc, setDoc } from "firebase/firestore"; 
+import {IoCloudUpload, IoTrash} from 'react-icons/io5'
 
-import {MdPhotoLibrary} from 'react-icons/md'
-import {FcHome,FcAbout,FcMenu} from 'react-icons/fc'
 
 import { ref,getDownloadURL,uploadBytes,deleteObject,listAll,uploadBytesResumable} from 'firebase/storage';
+import Nav from './Nav';
 
 const Uploadform = () => {
     const [error, setError] = useState(null);
@@ -64,6 +64,7 @@ const Uploadform = () => {
               }
               await setDoc(doc(projectfirestore, "images", `${Date.now()}`), data)
               setloading(false);
+              seturl(null)
               
             }
           }
@@ -89,17 +90,19 @@ const Uploadform = () => {
 
   <> 
  
+  <Nav/>
   
-  
-   <div>
+   <div className="fileupload">
             <div>
                
-                    <label for='img' style={{textAlign:'center'}}>
-                        <span style={{fontSize:'30px',border:'1px solid crimson', padding:'5px',borderRadius:'50%',textAlign:'center'}}>+</span>
+                    <label for='img' style={{textAlign:'center',marginTop:'100px'}}>
                        
-                    </label>
+                        {url ? null :<IoCloudUpload fontSize="100"/>}
+                    </label><br/><br/>
                     <input type="file"  id='img' style={{display:'none'}} onChange={Upload}/>
-                    <button type="submit" onClick={uploadimage}>Upload Image</button>
+
+                    <img src={url}/><br/><br/>
+                    <button type="submit" onClick={uploadimage} style={{background:'orange',color:'white',width:'200px',border:'none',padding:'8px',borderRadius:'10px'}}>Upload Image</button>
                
                
             </div>
@@ -110,10 +113,10 @@ const Uploadform = () => {
                 {imgloading && (<p>Loading</p>)}
                
             </div>
-
+            <div>{loading && (<p>Loading</p>)}</div>
 
     </div>
-    <div>{loading && (<p>Loading</p>)}</div>
+    
    
     </>
   )

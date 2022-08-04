@@ -1,0 +1,20 @@
+.galleries{
+    display:grid;
+    grid-template-columns: repeat(4,4fr);
+    margin-top:100px;
+}
+.galleries .gallery {
+    position:relative;
+}
+.galleries .gallery img{
+    width:250px;
+    height:250px;
+}
+
+
+@media(max-width:700px){
+    .galleries{
+        display:grid;
+        grid-template-columns: repeat(1,4fr);
+    }
+}

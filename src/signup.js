@@ -34,17 +34,14 @@ function Signup() {
     }
    else{
     try{
-      await createUserWithEmailAndPassword(auth,email,password).then((response)=>{
-        console.log(response.user.refreshToken)
-        localStorage.setItem('token', JSON.stringify(response.user.refreshToken))
-      });
+      await createUserWithEmailAndPassword(auth,email,password)
      setLoading(false)
      setsuccess("Your Account is created successfully")
      setdata({
        email:'',
        password: ''
      });
-     history.replace("/upload");
+     history.replace("/login");
    }
    catch(err){
    seterror(err.message)

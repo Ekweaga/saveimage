@@ -4,6 +4,7 @@ import Home from './home';
 import Gallery from './gallery';
 import Uploadform from './uploadform';
 import {BrowserRouter,Switch,Link,Route,useHistory} from 'react-router-dom'
+import {Redirect} from 'react-router'
 import Login from './login';
 import Signup from './signup';
 import {useEffect} from 'react'
@@ -20,7 +21,7 @@ function App() {
       <BrowserRouter>
       <Switch>
       <Route path="/upload" exact>
-       {token ? <Uploadform/>:<Login/> } 
+       {token ? <Uploadform/>:<Redirect to="/login"/> } 
       </Route>
       <Route path="/login" exact>
         <Login/>
