@@ -8,6 +8,7 @@ import Login from './login';
 import Signup from './signup';
 import {useEffect} from 'react'
 
+
 function App() {
   const token = JSON.parse(localStorage.getItem('token'))
   useEffect(()=>{
@@ -27,10 +28,13 @@ function App() {
       <Route path="/signup" exact>
         <Signup/>
       </Route>
+      <Route path="/library" exact>
+      <Gallery/>
+     </Route>
        <Route path="" exact>
          <Home/>
        </Route>
-     
+   
 
         </Switch>
       </BrowserRouter>

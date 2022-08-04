@@ -30,6 +30,7 @@ function Login() {
       await signInWithEmailAndPassword(auth,email,password);
      setLoading(false)
      history.replace("/upload");
+     
    }
    catch(err){
      console.log(err)

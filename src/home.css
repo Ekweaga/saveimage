@@ -36,7 +36,7 @@ ul li{
     display: flex;
     flex-direction: column;
     color:white;
-    background-position: center;
+  background-position: top;
 }
 .header .bring h1{
 font-size: 25px;

@@ -1,13 +1,14 @@
 import React from 'react';
 import { useState,useEffect } from 'react';
-import Progressbar from './hooks/progessbar';
-import Usestorage from './hooks/usestorage';
 import { onAuthStateChanged,signOut } from 'firebase/auth';
 import { auth } from './firebase';
-import { useHistory } from "react-router-dom";
+import { useHistory , Link} from "react-router-dom";
 import './uploadform.css';
 import {projectfirestore, projectstorage} from './firebase.js'
 import { doc, setDoc } from "firebase/firestore"; 
+
+import {MdPhotoLibrary} from 'react-icons/md'
+import {FcHome,FcAbout,FcMenu} from 'react-icons/fc'
 
 import { ref,getDownloadURL,uploadBytes,deleteObject,listAll,uploadBytesResumable} from 'firebase/storage';
 
@@ -87,20 +88,8 @@ const Uploadform = () => {
   return (
 
   <> 
-  <div className='head'>
-     
-          <h2>SOI</h2>
-          <div style={{display:'flex',justifyContent:'space-between'}}>
-          {user?.email}
-          <div style={{marginLeft:'10px'}}>
-              <button onClick={logout} style={{background:'white',color:'orangered',border:'none',padding:'6px',width:'50px'}}>logout</button>
-          </div>
-
-          </div>
-         
-     
-
-  </div>
+ 
+  
   
    <div>
             <div>
