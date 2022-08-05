@@ -31,7 +31,7 @@
 .headers .header-menu ul{
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  
   transition: 0.8s ease-in all;
 }
 .headers .header-menu ul li{

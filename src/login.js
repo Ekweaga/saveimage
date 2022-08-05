@@ -27,10 +27,7 @@ function Login() {
 
    else{
     try{
-      await signInWithEmailAndPassword(auth,email,password).then((response)=>{
-        console.log(response.user.refreshToken)
-        localStorage.setItem('token', JSON.stringify(response.user.refreshToken))
-      });
+      await signInWithEmailAndPassword(auth,email,password)
      setLoading(false)
      history.replace("/upload");
      

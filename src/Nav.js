@@ -3,16 +3,20 @@ import './styles.css';
 import closeimg from './icon-close.svg';
 import { useState,useEffect } from 'react';
 import openimg from './icon-hamburger.svg'
-import {Link} from "react-router-dom"
+import {Link,useHistory} from "react-router-dom"
 import { onAuthStateChanged,signOut } from 'firebase/auth';
+import { auth } from './firebase';
 import {MdPhotoLibrary} from 'react-icons/md'
 import {FcHome,FcAbout,FcMenu} from 'react-icons/fc'
+import {BsUpload} from 'react-icons/bs'
 
 function Nav() {
   const [toggle,settoogle] = useState(false);
   const [close,setclose] = useState(true);
   const [open,setopen] = useState(false);
   const [screenwidth, setscreenwidth] = useState(window.innerWidth)
+  const history = useHistory();
+  
   const tooglenav=()=>{
     settoogle(true)
     setclose(false)
@@ -25,6 +29,12 @@ function Nav() {
     setclose(true)
     setopen(false)
   }
+  const logout = async ()=>{
+    await signOut(auth)
+    history.replace("/login");
+    localStorage.clear();
+}
+
 
   useEffect(()=>{
     const changewidth = ()=>{
@@ -43,11 +53,12 @@ function Nav() {
       </div>
       <div className='header-menu' style={{backgroundColor:toggle ? "orangered": null}}>
       {(toggle || screenwidth > 500) && (
-      <ul style={{displlay:'flex'}}>
+      <ul style={{display:'flex'}}>
              
-              <li> <MdPhotoLibrary/> Library</li>
-              <li><FcHome/> Home</li>
-              <li><button style={{background:'white',border:'orangered',padding:'10px',color:'black'}}>logout</button></li>
+              <li onClick={()=>history.replace('/library')}> <MdPhotoLibrary/> Library</li>
+              <li onClick={()=>history.replace('/')}><FcHome/> Home</li>
+              <li onClick={()=>history.replace('/upload')}> <BsUpload/> Add</li>
+              <li onClick={logout}><button style={{background:'white',border:'orangered',padding:'10px',color:'black'}}>logout</button></li>
              
              
            

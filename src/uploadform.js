@@ -14,7 +14,7 @@ import Nav from './Nav';
 
 const Uploadform = () => {
     const [error, setError] = useState(null);
-    const [loading,setloading] = useState(true)
+    const [loading,setloading] = useState(false)
     const [imgloading,setimgloading] = useState(false)
     const [file, setFile] = useState(null);
     const [user,setuser] = useState(null);
@@ -74,11 +74,6 @@ const Uploadform = () => {
           }
           
    
-    const history = useHistory();
-    const logout = async ()=>{
-            await signOut(auth)
-            history.replace("/login");
-    }
     
    useEffect(()=>{
       
@@ -102,7 +97,7 @@ const Uploadform = () => {
                     <input type="file"  id='img' style={{display:'none'}} onChange={Upload}/>
 
                     <img src={url}/><br/><br/>
-                    <button type="submit" onClick={uploadimage} style={{background:'orange',color:'white',width:'200px',border:'none',padding:'8px',borderRadius:'10px'}}>Upload Image</button>
+                    <button type="submit" onClick={uploadimage} style={{background:'orangered',color:'white',width:'250px',border:'none',padding:'9px',borderRadius:'15px'}}>Upload Image</button>
                
                
             </div>
@@ -113,7 +108,7 @@ const Uploadform = () => {
                 {imgloading && (<p>Loading</p>)}
                
             </div>
-            <div>{loading && (<p>Loading</p>)}</div>
+            <div>{loading && (<p>Uploading.....</p>)}</div>
 
     </div>
     

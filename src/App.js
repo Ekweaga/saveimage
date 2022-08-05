@@ -32,7 +32,7 @@ function App() {
       <Route path="/library" exact>
       <Gallery/>
      </Route>
-       <Route path="" exact>
+       <Route path="/" exact>
          <Home/>
        </Route>
    
