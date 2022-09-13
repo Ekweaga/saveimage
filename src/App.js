@@ -8,6 +8,7 @@ import {Redirect} from 'react-router'
 import Login from './login';
 import Signup from './signup';
 import {useEffect} from 'react'
+import Footer from './Footer';
 
 
 function App() {
@@ -30,7 +31,8 @@ function App() {
         <Signup/>
       </Route>
       <Route path="/library" exact>
-      <Gallery/>
+      {token ?  <Gallery/>:<Redirect to="/login"/> } 
+     
      </Route>
        <Route path="/" exact>
          <Home/>
@@ -38,7 +40,10 @@ function App() {
    
 
         </Switch>
+        <div className="bottom"></div>
+        <Footer />
       </BrowserRouter>
+    
    
     </div>
   

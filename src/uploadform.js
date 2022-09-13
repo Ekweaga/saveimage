@@ -88,16 +88,16 @@ const Uploadform = () => {
   <Nav/>
   
    <div className="fileupload">
-            <div>
+            <div className="flex flex-col items-center justify-center">
                
-                    <label for='img' style={{textAlign:'center',marginTop:'100px'}}>
+                    <label for='img' style={{textAlign:'center',marginTop:'7px'}}>
                        
                         {url ? null :<IoCloudUpload fontSize="100"/>}
                     </label><br/><br/>
                     <input type="file"  id='img' style={{display:'none'}} onChange={Upload}/>
 
-                    <img src={url}/><br/><br/>
-                    <button type="submit" onClick={uploadimage} style={{background:'orangered',color:'white',width:'250px',border:'none',padding:'9px',borderRadius:'15px'}}>Upload Image</button>
+                    <img src={url}/><br/>
+                    <button type="submit" onClick={uploadimage} style={{background:'orangered',color:'white',width:'250px',border:'none',padding:'6px',marginBottom:'20px' ,borderRadius:'15px'}} className="text-sm">Upload Image</button>
                
                
             </div>

@@ -1,4 +1,4 @@
-.formtag{
+.form{
     display:flex;
     flex-direction: column;
     align-items: center;
@@ -7,7 +7,7 @@
 form{
     margin:10px;
 }
-.formtag input{
+.form input{
     width:250px;
     margin-top:10px;
     padding:9px;

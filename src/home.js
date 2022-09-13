@@ -8,146 +8,142 @@ import p1 from './images/avatar-ali.png'
 import p2 from './images/avatar-anisha.png'
 import p3 from './images/avatar-richard.png'
 import p4 from './images/avatar-shanai.png'
-import img1 from './images/icon-facebook.svg'
-import img2 from './images/icon-instagram.svg'
-import img3 from './images/icon-twitter.svg'
-import img4 from './images/icon-youtube.svg'
+
 import man1 from './images/man1.jpeg'
 import man2 from './images/man2.jpeg'
 import man3 from './images/man3.jpeg'
 import man4 from './images/man4.jpeg'
 import man5 from './images/man5.jpeg'
+import {MdPhotoLibrary} from 'react-icons/md'
+import {FcHome,FcAbout,FcMenu} from 'react-icons/fc'
+import {BsUpload} from 'react-icons/bs'
+import intro from './images/illustration-stay-productive.png'
 import './home.css'
+
+
 import {Link} from 'react-router-dom'
+import Nav from './Nav';
 
 const Home = () => {
   return (
-    <div className='home'>
-       { /*<div style={{color:'white', margin:'25px', background:'orangered',borderRadius:'50%',width:'40px',height:'40px',textAlign:'center',display:'flex',alignItems:'center',justifyContent:'center'}}> <span style={{textAlign:'center'}}>SOI</span> 
-        </div>*/}
-       
-      <div className='header'>
-        <div className='bring'>
-          <h1>
-            Bring your Images together for better Access
-          </h1>
-          <p>SaveOurImage makes it easy and simpler for users to save and be able to access images on cloud</p>
-          <div>
-          <Link to="signup">  <button style={{background:'orangered',color:'white',padding:'10px',border:'none',width:'150px',borderRadius:'10px'}}>Get started</button></Link>
-          </div>
-          
-        </div>
-       
-      
-      </div>
-      
-      <div className='body'>
-        <div className='adv'> 
-           <div style={{display:'flex',flexDirection:'column', alignItems:'center'}}> <h1>
-              What Different about SaveOurImage?
-            </h1>
-          
-            <p> SaveOurImage provides all functionality user need to save, manage and access image easily on our cloud
-               system</p></div>
-              { <div className='advimg'>  <img src={logo2}/></div>}
-          
-        </div>
-        <div className='diff'>
-          <div>
-           <div><span>01</span><br/><br/><b>User Authentication</b>
-           <p>Users are Authenticated to access thier images</p>
-           
-           </div> 
-          
-          </div>
-          <div>
-           <div><span>02</span><br/><br/><b>Advanced image storage system</b>
-           <p>We use large and scalable storage facility to store images</p>
-           </div> 
-          </div>
-          <div>
-            <div><span>03</span><br/><br/><b>Scalable storage capacity</b></div>
-           <div><p>Storage system used will scale-up has images uploads increases</p></div> 
-          </div>
-          <div>
-            <span>04</span><br/><br/><b>Secure Users Images</b>
-            <p>Each User image can only be seen and access by that user</p>
-          </div>
+ <> 
+ <Nav/>
+ 
+ <br/><br/>
 
+   <div className="hero m-0 md:m-10">
+    <div className="flex flex-col-reverse md:flex-row items-center md:justify-center px-6 mx-auto mt-3 space-y-0 md:space-y-0">
+      <div className="heroLeft flex flex-col mb-32 space-y-12 md:w-1/2">
+        <h1 className="text-4xl font-bold text-center md:text-5xl text-left max-w-md">
+          Bring your images together for faster access
+        </h1>
+        <p className='max-w-md text-center ml-0 md:ml-4 md:text-left'>SaveOurImage makes it easy and simpler for users to save and be able to access images on our platform</p>
+        <div className="flex justify-center md:justify-start">
+          <button>Get Started</button>
         </div>
-
-      </div>
-      <div><h1>
-        What they've said</h1></div>
-      <div className='test'>
-        <div>
-              <img src={p1}/>
-              <h3>Ali</h3>
-              <p>Wow, I have be able to save all my iages from my phone to SaveOurImage. Easily accessible, Kudos</p>
-        </div>
-        <div>
-        <img src={p2}/>
-        <h3>Anisha</h3>
-        <p>I have been using this platform for a while now and I tell you, its really the best</p>
-        </div>
-        <div>    <img src={p3}/>  
-         <h3>Richard</h3>
-         <p>SOI, i give them thumbs up for large storage capacity!!!. I was able to store all my images as bulky as they were</p>
-        </div>
-        <div>    <img src={p4}/>  
-         <h3>Shanai</h3>
-         <p>Wow, I have be able to save all my iages from my phone to SaveOurImage. Easily accessible, Kudos</p>
-         </div>
-      </div>
-      <div>
-      <Link to="signup">  <button  style={{color:'white',background:'orangered',border:'none',margin:'20px',width:'250px',borderRadius:'20px',padding:'10px'}}>Create an account</button></Link>
       </div>
 
-      <div className='bottom'>
-<div style={{color:'white',margin:'20px',width:'350px'}}>
-  <h2 style={{fontSize:'15px'}}>Save yourself some space with SaveOurImage</h2>
-</div>
-<div className='btn'>
-  <button style={{color:'orangered',background:'white',border:'none',margin:'20px',width:'200px',borderRadius:'20px',padding:'8px'}}>
-    Get Started
-  </button>
-</div>
-      </div>
+      <div className="heroImg w-full md:w-1/2">
+        <img src={intro} />
 
-      <div className='footer'>
-            <div style={{display:'flex',flexDirection:'column',justifyContent:'center',alignItems:'center'}}>
-             <div style={{color:'white',background:'orangered',borderRadius:'50%',width:'40px',height:'40px',textAlign:'center',display:'flex',alignItems:'center',justifyContent:'center'}}> <span style={{textAlign:'center'}}>SOI</span> </div>
-              <div style={{margin:'20px'}}>
-                <img src={img1}/>&nbsp;
-                <img src={img2}/>&nbsp;
-                <img src={img3}/>&nbsp;
-                <img src={img4}/>
 
-              </div>
-            </div>
-            <div>
-                  <ul>
-                    <li>Home</li>
-                    <li>SaveImage</li>
-                    <li>About Us</li>
-                    <li>Create Account</li>
-                  </ul>
-            </div>
-            <div>
-            <ul>
-                    <li>Careers</li>
-                    <li>Policy</li>
-                    <li>Community</li>
-                  </ul>
-            </div>
-            <div>
-              <input type='email' placeholder='Updates in your inbox'/><button  style={{color:'orangered',background:'white',border:'none',width:'50px',borderRadius:'20px',padding:'8px'}}>Go</button>
-            </div>
       </div>
-      
 
     </div>
+
+   </div>
+
+   <div className="features">
+
+    <div className="flex flex-col md:flex-row items-center  px-6 mx-auto mt-3 space-y-0 md:space-y-0">
+      <div className="flex flex-col mb-32 space-y-12 md:w-1/2">
+      <h1 className="text-4xl font-bold text-center md:text-4xl md:text-left max-w-md">
+        What Different about SaveOurImage
+        </h1>
+        <p className='max-w-md text-center ml-0 md:ml-4 md:text-left'>SaveOurImage provides all functionality users need to save, manage and access images easily on our platform</p>
+       
+      </div>
+      <div className="adv flex flex-col">
+        <div className="flex flex-col md:flex-row m-10">
+          <section className="rounded-full mx-auto md:mx-0">01</section>
+          <div><h3 className="font-bold">User Authentication</h3>
+          <p>Users are authenticated to access their images</p></div>
+          
+
+        </div>
+
+        <div className="flex flex-col md:flex-row m-10">
+          <section className="rounded-full mx-auto md:mx-0">02</section>
+          <div><h3 className="font-bold">Advanced storage system</h3>
+          <p>We use latest storage facility to store images</p></div>
+          
+
+        </div>
+
+        <div className="flex flex-col md:flex-row m-10">
+          <section className="rounded-full mx-auto md:mx-0">03</section>
+          <div><h3 className="font-bold">Scalable storage capacity</h3>
+          <p>Storage system scale-up has images uploads increases</p></div>
+          
+
+        </div>
+
+        <div className="flex flex-col md:flex-row m-10">
+          <section className="rounded-full mx-auto md:mx-0">04</section>
+          <div><h3 className="font-bold">Secure Users Images</h3>
+          <p>Each user image can only be seen and access by that user</p></div>
+          
+
+        </div>
+
+       
+
+      </div>
+
+    </div>
+
+   </div>
+
+   <div>
+      <h2 className="font-bold text-3xl m-5">What they say</h2>
+    </div>
+
+   <div className="testimonials mx-auto flex flex-row items-center justify-center p-3">
+   
+    <div className="flex flex-col md:flex-row items-center  px-6 mx-auto mt-3 space-y-0 md:space-y-0 gap-4 ">
+      <div className="flex flex-col items-center justify-center bg-gray-100 p-4 w-50">
+        <img src={p1}/>
+        <div>  <h4 className="font-bold">Shanai</h4>
+        <p className="text-sm">Wow, I have be able to save all images from my phone to SaveOurImage. Bravo!!</p>
+        </div>
+      
+      </div>
+      <div className="flex flex-col items-center justify-center bg-gray-100 p-4 w-50"> <img src={man1}/>
+      <div><h4 className="font-bold">Richard</h4>
+      <p className="text-sm">
+        Thumbs uo for large storage capacity. I was able to store all.</p></div>
+      </div>
+      <div className="flex flex-col items-center justify-center bg-gray-100 p-4"> <img src={p2}/>
+      <div><h4 className="font-bold">Anisha</h4>
+      <p className="text-sm">I have been using this platform for awhile now. It's really the best</p></div></div>
+      <div className="flex flex-col items-center justify-center bg-gray-100 p-4"> <img src={man3}/>
+      <div>
+        <h4 className="font-bold">Ali</h4>
+        <p className="text-sm">Good platform wonderfully made</p></div></div>
+
+    </div>
+   </div>
+   <div className="m-10">
+    <button>Create Account</button>
+   </div>
+
+   <div className="start flex flex-col md:flex-row items-center justify-around gap-5 p-5">
+    <section><p className="font-bold">Save yourselves some space with SaveOurImage</p></section>
+    <div><button>Get Started</button></div>
+   </div>
+
+   </>
   )
-}
+} 
 
 export default Home

@@ -46,24 +46,24 @@ function Login() {
   return (
     <div className='formtag'>
     <div style={{color:'white',background:'orangered',borderRadius:'50%',width:'100px',height:'100px', margin:'auto', marginTop:'100px',textAlign:'center',display:'flex',alignItems:'center',justifyContent:'center'}}> 
-    <span style={{textAlign:'center',fontSize:'25px'}}>SOI</span> </div>
+    <span style={{textAlign:'center',fontSize:'25px'}}>SOI</span> </div><br/>
 
-    <div><h2>Welcome back, Login in</h2></div>
+    <div><h2>Welcome back, Login in</h2></div><br/>
   <form onSubmit={login}>
      
       <div>
-          <input type="email" placeholder='Email' name='email' value={email} onChange={handlechange}/>
+          <input type="email" placeholder='Email' name='email' value={email} onChange={handlechange} style={{border:'1px solid black',padding:'5px'}}/>
       </div><br/>
       <div>
-          <input type="password" placeholder='password' name='password' value={password} onChange={handlechange}/>
+          <input type="password" placeholder='password' name='password' value={password} onChange={handlechange} style={{border:'1px solid black',padding:'5px'}}/>
       </div><br/>
       <div>
-        <button type="submit">LOGIN</button><br/>
+        <button type="submit" style={{color:'white',background:'orangered',borderRadius:'20px'}}>LOGIN</button><br/>
 
       </div>
       <div>{error}</div><br/>
-      <div>Don't have an account ? <Link to="signup" style={{color:'black',textDecoration:'none'}}>Sign up</Link></div>
-  </form>
+      <div className='text-sm'>Don't have an account ? <Link to="signup" style={{color:'black',textDecoration:'none'}} >Sign up</Link></div>
+  </form><br/><br/>
   </div>
   )
 }

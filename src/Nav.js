@@ -34,7 +34,7 @@ function Nav() {
     history.replace("/login");
     localStorage.clear();
 }
-
+const token = JSON.parse(localStorage.getItem('token'))
 
   useEffect(()=>{
     const changewidth = ()=>{
@@ -47,29 +47,32 @@ function Nav() {
     window.addEventListener('resize',changewidth)
   },[])
   return (
-    <div className='headers'> 
-      <div className='header-logo'>
-          SOI
+    <nav className='relative  lg:mx-auto p-6 '>
+    <div className="flex items-center justify-between">
+      <div className="">
+        <div className=" rounded-full p-3 ImgIcon">
+          <h2>SOI</h2>
+        </div>
       </div>
-      <div className='header-menu' style={{backgroundColor:toggle ? "orangered": null}}>
-      {(toggle || screenwidth > 500) && (
-      <ul style={{display:'flex'}}>
-             
-              <li onClick={()=>history.replace('/library')}> <MdPhotoLibrary/> Library</li>
-              <li onClick={()=>history.replace('/')}><FcHome/> Home</li>
-              <li onClick={()=>history.replace('/upload')}> <BsUpload/> Add</li>
-              <li onClick={logout}><button style={{background:'white',border:'orangered',padding:'10px',color:'black'}}>logout</button></li>
-             
-             
-           
-          </ul>) }
-         <div className='menubar'>
+      <div>
+        <div className="hidden md:flex space-x-6 ">
+          <Link to="" className="hover:text-orange-100 flex flex-row items-center justify-center gap-2"> <FcHome/> Home</Link>
+          <Link to="library" className="hover:text-orange-100 flex flex-row items-center justify-center gap-2"> <MdPhotoLibrary/> Library</Link>
+          <Link to="upload" className="hover:text-orange-100 flex flex-row items-center justify-center gap-2"> <BsUpload/> Create</Link>
+          <Link to="" className="hover:text-orange-100 flex flex-row items-center justify-center gap-2">Blog</Link>
+        
+        </div>
+      </div>
+    
+      <Link to="" className="navBtn shadow hidden md:block">{token?<span onClick={logout}>Logout</span>:<span>Login</span>}</Link>
+     
+      <div className='menubar'>
          {close &&(<button className='ham' onClick={tooglenav} style={{backgroundColor:'transparent',border:'none',color:'#2FC3B4'}}><img src={openimg} style={{width:'20px',height:'20px',cursor:'pointer' }} alt="img"/></button>)}  
         {open &&(<button className='close' onClick={toogleclose} style={{backgroundColor:'transparent',border:'none',color:'#2FC3B4'}}> <img src={closeimg} style={{width:'20px',height:'20px',cursor:'pointer'}} alt="imgs"/></button>)} 
          </div>
-         
-      </div>
     </div>
+
+   </nav>
   )
 }
 

@@ -60,30 +60,30 @@ function Signup() {
   }
  
   return (
-    <div className='formtag'>
+    <div className='form'>
           <div style={{color:'white',background:'orangered',borderRadius:'50%',width:'100px',height:'100px', margin:'auto', marginTop:'100px',textAlign:'center',display:'flex',alignItems:'center',justifyContent:'center'}}> 
-          <span style={{textAlign:'center',fontSize:'25px'}}>SOI</span> </div>
+          <span style={{textAlign:'center',fontSize:'25px'}}>SOI</span> </div><br/>
 
-          <div><h2>Create an Account</h2>
-          <p>Please create an account to continue</p>
+          <div><h2 className='text-sm'>Create an Account</h2>
+          <p className='text-sm'>Please create an account to continue</p>
           </div>
         <form onSubmit={signup}>
             <div>
-                <input type="email" placeholder='Email' value={email} onChange={handlechange} name='email'/>
+                <input type="email" placeholder='Email' value={email} onChange={handlechange} name='email' style={{border:'1px solid black'}}/>
             </div>
             <div>
-                <input type="password" placeholder='Password' value={password} onChange={handlechange} name='password'/>
+                <input type="password" placeholder='Password' value={password} onChange={handlechange} name='password' style={{border:'1px solid black'}}/>
             </div><br/>
             <div>
-              <button type="submit" >{loading ? "CREATING...." :"SIGN UP"}</button>
+              <button type="submit" className="" style={{color:'white',background:'orangered',borderRadius:'20px'}}>{loading ? "CREATING...." :"SIGN UP"}</button>
 
             </div>
             <div>
               {error?<p>{error}</p>:''}
               {success ? <p>{success}</p>: ''}
             </div><br/>
-            <div>Already have an account ? <Link to="login" style={{color:'black',textDecoration:'none'}}>Sign in</Link></div>
-        </form>
+            <div className='text-sm'>Already have an account ? <Link to="login" style={{color:'black',textDecoration:'none'}}>Sign in</Link></div>
+        </form><br/><br/>
         </div>
   )
 }

@@ -49,8 +49,8 @@ getallfeeds();
     <>
     <Nav/>
 
-    <div> {feeds.length === 0 ? (<><div style={{marginTop:'100px'}}>Library empty</div><br/><br/>
-    <div onClick={()=>history.replace('/upload')}><BsUpload fontSize="50"/></div></>):(<div> {galleryloading ?<MdDownloading fontSize="50" style={{marginTop:'150px'}}/> : (<div className="galleries">
+    <div className="flex flex-col items-center justify-center mt-50" style={{marginTop:'230px'}}> {feeds.length === 0 ? (<><div className="flex flex-col items-center justify-center gap-10"><div style={{marginTop:'100px'}} className="text-3xl">Library empty</div>
+    <div onClick={()=>history.replace('/upload')}><BsUpload fontSize="50"/></div></div></>):(<div> {galleryloading ?<MdDownloading fontSize="50" style={{marginTop:'0px'}} className="mb-20"/> : (<div className="galleries">
      {
       feeds.map((feed,index)=>{
         return (<>
