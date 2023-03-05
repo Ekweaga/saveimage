@@ -9,6 +9,7 @@ import Login from './login';
 import Signup from './signup';
 import {useEffect} from 'react'
 import Footer from './Footer';
+import About from './About';
 
 
 function App() {
@@ -37,11 +38,15 @@ function App() {
        <Route path="/" exact>
          <Home/>
        </Route>
+
+       <Route path="/about" exact>
+        <About/>
+       </Route>
    
 
         </Switch>
         <div className="bottom"></div>
-        <Footer />
+      
       </BrowserRouter>
     
    

@@ -5,11 +5,10 @@ import { auth } from './firebase';
 import { useHistory , Link} from "react-router-dom";
 import './uploadform.css';
 import {projectfirestore, projectstorage} from './firebase.js'
-import { doc, setDoc } from "firebase/firestore"; 
+import { updateDoc,arrayUnion, onSnapshot,setdoc,doc } from "firebase/firestore"; 
 import {IoCloudUpload, IoTrash} from 'react-icons/io5'
 
 
-import { ref,getDownloadURL,uploadBytes,deleteObject,listAll,uploadBytesResumable} from 'firebase/storage';
 import Nav from './Nav';
 
 const Uploadform = () => {
@@ -17,18 +16,20 @@ const Uploadform = () => {
     const [loading,setloading] = useState(false)
     const [imgloading,setimgloading] = useState(false)
     const [file, setFile] = useState(null);
-    const [user,setuser] = useState(null);
+    const [user,setUser] = useState({});
     const [imagesucess,setimagesuccess] = useState(null);
     const [imagelist,setImagelist] = useState([])
     const [progress,setprogress] = useState(null)
     const [url,seturl] = useState(null);
+    
+   
   
    
     let options = ['image/png', "image/jpg", "image/jpeg"];
     const Upload = (e)=>{
         setloading(true);
         const file = e.target.files[0]
-        const storageref = ref(projectstorage,`images/${Date.now()}-${file.name}`);
+        const storageref = ref(projectstorage,`images/${user?.email}-${file.name}`);
         const uploadTask = uploadBytesResumable(storageref, file);
         
         uploadTask.on("state_changed", (snapshot)=>{
@@ -58,11 +59,20 @@ const Uploadform = () => {
             }
             else{
               const data = {
-                  id:`${Date.now()}`,
+                  id:`${user?.uuid}`,
 
                   imageurl:url
               }
-              await setDoc(doc(projectfirestore, "images", `${Date.now()}`), data)
+              await updateDoc(doc(projectfirestore, "images", `${user?.email}`), {
+                saveImages:arrayUnion({
+                 
+                    id:`${user?.uuid}`,
+  
+                    imageurl:url
+                
+              })
+              }  
+           )
               setloading(false);
               seturl(null)
               
@@ -80,6 +90,20 @@ const Uploadform = () => {
      
    
    },[])
+   useEffect(()=>{
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        // User is signed in, see docs for a list of available properties
+    
+        setUser(user)
+       
+        // ...
+      } else {
+        // User is signed out
+        // ...
+        return;
+      }
+    });})
 
   return (
 

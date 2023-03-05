@@ -10,6 +10,25 @@
        
     
 }
+.resBtn{
+    margin-right:-150px;
+}
+.responsive{
+    display:none;
+}
+.open{
+    display:block;
+    transition:all ease-in-out 0.5s;
+    box-shadow:0 30px 50px rgba(0,0,0,0.4);
+    border-radius:10px;
+    padding:10px 0;
+    margin-top:25px;
+    padding-bottom:25px;
+    height:350px;
+    align-items:center;
+    justify-content:center;
+    
+}
 .header-logo{
     background: orangered;
     color: white;
@@ -113,5 +132,6 @@
       }
     .menubar{
         display:block;
+        margin-right: -100px;
     }
 }

@@ -20,18 +20,18 @@ function Footer() {
         </div>
         </div>
 
-        <div className='flex flex-col items-center justify-center'>
+        <div className='flex flex-col items-center justify-center gap-3'>
         <Link to="" className="hover:text-orange-100">Home</Link>
-          <Link to="" className="text-sm">Library</Link>
-          <Link to="" className="text-sm">Create</Link>
+          <Link to="library" className="text-sm">Library</Link>
+          <Link to="upload" className="text-sm">Create</Link>
           <Link to="" className="text-sm">Blog</Link>
         </div>
-        <div className='flex flex-col items-center justify-center'>
-        <Link to="" className="hover:text-orange-100">Create account</Link>
-          <Link to="" className="text-sm">About Us</Link>
+        <div className='flex flex-col items-center justify-center gap-3'>
+        <Link to="signup" className="hover:text-orange-100">Create account</Link>
+          <Link to="about" className="text-sm">About Us</Link>
          
         </div>
-        <div>
+        <div className="hidden md:block">
             <input type="email" placeholder="Email" style={{background:'white',border:'1px solid white',borderRadius:'20px',padding:'5px'}} className="focus:outline-none focus:border-none text-black"/> <button style={{width:'100px'}}>Go</button>
         </div>
       

@@ -3,6 +3,9 @@ import { auth } from './firebase';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { useHistory, Link } from "react-router-dom";
 import './signup.css'
+import { doc, setDoc } from "firebase/firestore"; 
+import {projectfirestore, projectstorage} from './firebase.js'
+
 
 function Signup() {
   const history = useHistory();
@@ -39,6 +42,9 @@ function Signup() {
         localStorage.setItem('token', JSON.stringify(response.user.refreshToken))
         
       });
+      await setDoc(doc(projectfirestore, "images", `${email}`), {
+        saveImages:[]
+      })
      setLoading(false)
      setsuccess("Your Account is created successfully")
      setdata({
@@ -79,7 +85,7 @@ function Signup() {
 
             </div>
             <div>
-              {error?<p>{error}</p>:''}
+              {error?(<div className="bg-red-400 text-white p-3 mt-3"><p>{error}</p></div>):''}
               {success ? <p>{success}</p>: ''}
             </div><br/>
             <div className='text-sm'>Already have an account ? <Link to="login" style={{color:'black',textDecoration:'none'}}>Sign in</Link></div>

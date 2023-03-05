@@ -62,7 +62,8 @@ function Login() {
 
       </div>
       <div>{error}</div><br/>
-      <div className='text-sm'>Don't have an account ? <Link to="signup" style={{color:'black',textDecoration:'none'}} >Sign up</Link></div>
+      <div className='text-sm'>Don't have an account ? <Link to="signup" style={{color:'orangered',textDecoration:'none'}} >Sign up</Link></div>
+      <div className="text-center text-orangered-600" style={{color:'orangered'}}><Link to="/">Go back home</Link></div>
   </form><br/><br/>
   </div>
   )

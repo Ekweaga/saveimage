@@ -41,15 +41,12 @@ button{
 .start{
     background:rgb(255, 69, 0);
     color:white;
-    height:100px;
+    height:200px;
 }
 .start button{
     background:white;
     color:rgb(255, 69, 0)
 }
 .features{
-    background-image: url("./images/bg-tablet-pattern.svg");
-    background-repeat: no-repeat;
-    background-size: 600px;
-    background-position: -45% -25%;
+   
 }
