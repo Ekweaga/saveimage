@@ -6,6 +6,7 @@ import { useHistory , Link} from "react-router-dom";
 import './uploadform.css';
 import {projectfirestore, projectstorage} from './firebase.js'
 import { updateDoc,arrayUnion, onSnapshot,setdoc,doc } from "firebase/firestore"; 
+import { getDownloadURL,ref,uploadBytesResumable } from 'firebase/storage';
 import {IoCloudUpload, IoTrash} from 'react-icons/io5'
 
 
@@ -21,7 +22,7 @@ const Uploadform = () => {
     const [imagelist,setImagelist] = useState([])
     const [progress,setprogress] = useState(null)
     const [url,seturl] = useState(null);
-    
+    const router = useHistory()
    
   
    
@@ -101,6 +102,7 @@ const Uploadform = () => {
       } else {
         // User is signed out
         // ...
+        router.push("/login")
         return;
       }
     });})
@@ -120,7 +122,7 @@ const Uploadform = () => {
                     </label><br/><br/>
                     <input type="file"  id='img' style={{display:'none'}} onChange={Upload}/>
 
-                    <img src={url}/><br/>
+                    <img src={url} className="w-[150px]"/><br/>
                     <button type="submit" onClick={uploadimage} style={{background:'orangered',color:'white',width:'250px',border:'none',padding:'6px',marginBottom:'20px' ,borderRadius:'15px'}} className="text-sm">Upload Image</button>
                
                
